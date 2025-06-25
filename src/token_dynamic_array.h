@@ -17,6 +17,8 @@ typedef struct TokenDynamicArray {
 
 TokenDynamicArray *TokenDynamicArray_new(size_t capacity);
 
+void TokenDynamicArray_free(TokenDynamicArray *array);
+
 TokenDynamicArray *TokenDynamicArray_append(TokenDynamicArray *array, const Token *token);
 
 TokenDynamicArray *TokenDynamicArray_resize(TokenDynamicArray *array, size_t capacity);

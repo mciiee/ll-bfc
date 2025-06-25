@@ -12,6 +12,12 @@ TokenDynamicArray *TokenDynamicArray_new(size_t capacity){
     return array;
 }
 
+void TokenDynamicArray_free(TokenDynamicArray *array){
+    free(array->tokens);
+    free(array);
+}
+
+
 TokenDynamicArray *TokenDynamicArray_resize(TokenDynamicArray *array, size_t capacity){
     array->capacity = capacity;
     if (capacity < array->occupied) {
