@@ -8,6 +8,9 @@ BUILD_DIR=build
 CFILES=$(wildcard $(SRC_DIR)/*.c)
 OUTPUT=$(BUILD_DIR)/bfc
 
-$(OUTPUT):
+$(OUTPUT): $(BUILD_DIR)
 	$(CC) $(CFLAGS) $(CFILES) -o $(OUTPUT)
+
+$(BUILD_DIR):
+	mkdir -p $(BUILD_DIR)
 
