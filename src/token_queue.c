@@ -24,12 +24,24 @@ void TokenQueueNode_link(TokenQueueNode *prev, TokenQueueNode *next) {
     next->prev = prev;
 }
 
-void TokenQueueNode_freeRec(TokenQueueNode *node){
-    if (node->next == nullptr) {
-        free(node);
-        return;
+static void TokenQueueNode_freeRec(TokenQueueNode *node){
+    TokenQueueNode *tail = node; 
+    TokenQueueNode *pretail = node;
+
+    while (tail->next != nullptr) {
+        tail = tail->next;
     }
-    TokenQueueNode_freeRec(node->next);
+
+    pretail = tail->prev;
+    while (pretail != node && pretail != nullptr) {
+        free(tail);
+        tail = pretail;
+        if (tail != nullptr) {
+            pretail = tail->prev;
+        }
+
+    }
+
     free(node);
 }
 
@@ -71,6 +83,7 @@ TokenQueueNode *TokenQueue_dequeue(TokenQueue *queue){
     }
     if (queue->tail->prev == queue->head) {
         queue->tail = nullptr;
+        queue->head->next = nullptr;
         return tail;
     }
     queue->tail = queue->tail->prev;

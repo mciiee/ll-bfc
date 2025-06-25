@@ -1,4 +1,4 @@
-#ifdef _TOKEN_QUEUE_H
+#ifndef _TOKEN_QUEUE_H
 #define _TOKEN_QUEUE_H
 #endif
 
