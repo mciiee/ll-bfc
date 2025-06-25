@@ -41,13 +41,3 @@ TokenDynamicArray *tokenize(FILE *stream){
     return tokens;
 }
 
-int main(int argc, char **argv){
-    FILE *input = stdin;
-    
-    // auto tokens = tokenize(input);
-   
-    auto tokens = tokenize(input);
-    
-
-    return 0;
-}
