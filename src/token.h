@@ -27,7 +27,7 @@ typedef union TokenValue {
     void *ptr;
     int step;
     char symbol;
-} TokenValue ;
+} TokenValue;
 
 typedef struct Token {
     enum TokenType type;
@@ -60,7 +60,12 @@ const Token DECREMENT_CELL_TOKEN = {
 
 
 const Token OUTPUT_CELL_TOKEN = {
-    .type = DECREMENT_CELL,
+    .type = OUTPUT_CELL,
+    .val = {.ptr = nullptr}
+};
+
+const Token INPUT_CELL_TOKEN = {
+    .type = OUTPUT_CELL,
     .val = {.ptr = nullptr}
 };
 
@@ -74,7 +79,7 @@ const Token JUMP_BACWARD_TOKEN = {
 };
 
 const Token END_OF_FILE_TOKEN = {
-    .type = DECREMENT_CELL,
+    .type = END_OF_FILE,
     .val = {.step = -1}
 };
 #endif
