@@ -38,16 +38,16 @@ TokenDynamicArray *tokenize(FILE *stream){
         }
         TokenDynamicArray_append(tokens, &lastToken);
     }
-    return nullptr;
+    return tokens;
 }
 
 int main(int argc, char **argv){
-    printf("dummy: %i, %p", argc, (void*)argv);
-    // FILE *input = stdin;
+    FILE *input = stdin;
     
     // auto tokens = tokenize(input);
+   
+    auto tokens = tokenize(input);
     
-
 
     return 0;
 }
