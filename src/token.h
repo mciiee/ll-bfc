@@ -47,7 +47,6 @@ const Token DECREMENT_DP_TOKEN = {
     .val = {.step = 1}
 };
 
-
 const Token INCREMENT_CELL_TOKEN = {
     .type = INCREMENT_CELL,
     .val = {.step = 1}
@@ -57,7 +56,6 @@ const Token DECREMENT_CELL_TOKEN = {
     .type = DECREMENT_CELL,
     .val = {.step = 1}
 };
-
 
 const Token OUTPUT_CELL_TOKEN = {
     .type = OUTPUT_CELL,
