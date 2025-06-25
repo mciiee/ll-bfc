@@ -33,7 +33,7 @@ TokenDynamicArray *TokenDynamicArray_resize(TokenDynamicArray *array, size_t cap
 
 
 TokenDynamicArray *TokenDynamicArray_append(TokenDynamicArray *array, const Token *token){
-    if (array->capacity >= array->occupied) {
+    if (array->capacity <= array->occupied) {
         array = TokenDynamicArray_resize(array, array->capacity * 1.5);
     }
     array->tokens[array->occupied] = *token;
