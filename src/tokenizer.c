@@ -25,23 +25,35 @@ TokenDynamicArray *tokenize(FILE *stream){
         switch (input_char) {
             case '>':
                 lastToken = INCREMENT_DP_TOKEN;
+                break;
             case '<':
                 lastToken = DECREMENT_DP_TOKEN;
+                break;
             case '+':
                 lastToken = INCREMENT_CELL_TOKEN;
+                break;
             case '-':
                 lastToken = DECREMENT_CELL_TOKEN;
+                break;
             case '.':
                 lastToken = OUTPUT_CELL_TOKEN;
+                break;
+            case ',':
+                lastToken = INPUT_CELL_TOKEN;
+                break;
             case '[':
                 lastToken = JUMP_FORWARD_TOKEN;
+                break;
             case ']':
                 lastToken = JUMP_BACWARD_TOKEN;
+                break;
             default:
                 lastToken = (Token){.type = COMMENT, .val = {.symbol = input_char}};
+                break;
         }
         TokenDynamicArray_append(tokens, &lastToken);
     }
+    TokenDynamicArray_append(tokens, &END_OF_FILE_TOKEN);
     return tokens;
 }
 
