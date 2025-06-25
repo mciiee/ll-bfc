@@ -17,7 +17,7 @@
 
 #include "tokenizer.h"
 
-TokenDynamicArray *tokenize(FILE *stream){
+[[nodiscard("Dynamically allocated memory")]] TokenDynamicArray *tokenize(FILE *stream){
     TokenDynamicArray *tokens = TokenDynamicArray_new(INITIAL_TOKEN_DYNAMIC_ARRAY_SIZE);
     Token lastToken = {0};
     for (char input_char = '\0'; !feof(stream);) {
